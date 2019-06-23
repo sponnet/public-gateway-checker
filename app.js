@@ -4,7 +4,7 @@ let hashToLink = hashToTest;
 if (window.location.search && window.location.search.split("?").length > 1) {
     hashToLink = window.location.search.split("?")[1];
 }
-
+setTitle(hashToLink);
 
 const $results = document.querySelector('#results')
 
@@ -34,6 +34,10 @@ function addNode(gateway, online, status, roundtripInMs) {
 
 function updateStats(total, checked) {
     document.getElementById('stats').innerText = checked + '/' + total + ' gateways checked'
+}
+
+function setTitle(hash) {
+    document.getElementById('title').innerText = "Public IPFS Gateways for " + hash;
 }
 
 function checkGateways(gateways) {
